@@ -120,3 +120,7 @@ Run all the integrity checks and return the detailed report.
 | **`failedChecks`** | <code>string[]</code> | Identifiers of the checks that could not run. A non-empty list means the report is incomplete.      |
 
 </docgen-api>
+
+## License
+
+MIT. RootBeer, used on Android, is distributed under its own license.

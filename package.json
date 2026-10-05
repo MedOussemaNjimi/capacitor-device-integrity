@@ -12,10 +12,11 @@
     "dist/",
     "ios/Sources",
     "Package.swift",
-    "CapacitorDeviceIntegrity.podspec"
+    "CapacitorDeviceIntegrity.podspec",
+    "LICENSE"
   ],
   "author": "Mohamed Oussema Njimi",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MedOussemaNjimi/capacitor-device-integrity.git"
