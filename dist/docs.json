@@ -1,0 +1,72 @@
+{
+  "api": {
+    "name": "DeviceIntegrityPlugin",
+    "slug": "deviceintegrityplugin",
+    "docs": "",
+    "tags": [],
+    "methods": [
+      {
+        "name": "check",
+        "signature": "() => Promise<IntegrityReport>",
+        "parameters": [],
+        "returns": "Promise<IntegrityReport>",
+        "tags": [],
+        "docs": "Run all the integrity checks and return the detailed report.",
+        "complexTypes": [
+          "IntegrityReport"
+        ],
+        "slug": "check"
+      }
+    ],
+    "properties": []
+  },
+  "interfaces": [
+    {
+      "name": "IntegrityReport",
+      "slug": "integrityreport",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "rooted",
+          "tags": [],
+          "docs": "The device is rooted (Android) or jailbroken (iOS).",
+          "complexTypes": [],
+          "type": "boolean"
+        },
+        {
+          "name": "hooked",
+          "tags": [],
+          "docs": "An instrumentation or hooking framework (Frida, Xposed, Substrate...) is loaded in the app process.",
+          "complexTypes": [],
+          "type": "boolean"
+        },
+        {
+          "name": "debugged",
+          "tags": [],
+          "docs": "A debugger is attached to the app process. Expected to be true on development builds.",
+          "complexTypes": [],
+          "type": "boolean"
+        },
+        {
+          "name": "reasons",
+          "tags": [],
+          "docs": "Identifiers of the checks that detected something, for logging purposes.",
+          "complexTypes": [],
+          "type": "string[]"
+        },
+        {
+          "name": "failedChecks",
+          "tags": [],
+          "docs": "Identifiers of the checks that could not run. A non-empty list means the report is incomplete.",
+          "complexTypes": [],
+          "type": "string[]"
+        }
+      ]
+    }
+  ],
+  "enums": [],
+  "typeAliases": [],
+  "pluginConfigs": []
+}

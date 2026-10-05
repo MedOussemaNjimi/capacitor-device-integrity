@@ -1,0 +1,73 @@
+{
+  "name": "capacitor-device-integrity",
+  "version": "0.0.1",
+  "description": "Root, jailbreak and runtime instrumentation detection",
+  "main": "dist/plugin.cjs.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "unpkg": "dist/plugin.js",
+  "files": [
+    "android/src/main/",
+    "android/build.gradle",
+    "dist/",
+    "ios/Sources",
+    "Package.swift",
+    "CapacitorDeviceIntegrity.podspec"
+  ],
+  "author": "Mohamed Oussema Njimi",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MedOussemaNjimi/capacitor-device-integrity.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MedOussemaNjimi/capacitor-device-integrity/issues"
+  },
+  "keywords": [
+    "capacitor",
+    "plugin",
+    "native"
+  ],
+  "scripts": {
+    "verify": "npm run verify:ios && npm run verify:android",
+    "verify:ios": "xcodebuild -scheme CapacitorDeviceIntegrity -destination generic/platform=iOS",
+    "verify:android": "cd android && ./gradlew clean build test && cd ..",
+    "lint": "npm run eslint && npm run prettier -- --check",
+    "fmt": "npm run eslint -- --fix && npm run prettier -- --write",
+    "eslint": "eslint . --ext ts",
+    "prettier": "prettier \"**/*.{css,html,ts,js,java}\" --plugin=prettier-plugin-java",
+    "docgen": "docgen --api DeviceIntegrityPlugin --output-readme README.md --output-json dist/docs.json",
+    "build": "npm run clean && npm run docgen && tsc && rollup -c rollup.config.mjs",
+    "clean": "rimraf ./dist",
+    "watch": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@capacitor/android": "^7.0.0",
+    "@capacitor/core": "^7.0.0",
+    "@capacitor/docgen": "^0.3.1",
+    "@capacitor/ios": "^7.0.0",
+    "@ionic/prettier-config": "^4.0.0",
+    "eslint": "^8.57.1",
+    "prettier": "^3.4.2",
+    "prettier-plugin-java": "^2.6.6",
+    "rimraf": "^6.0.1",
+    "rollup": "^4.30.1",
+    "typescript": "~5.4.0"
+  },
+  "peerDependencies": {
+    "@capacitor/core": ">=7.0.0"
+  },
+  "prettier": "@ionic/prettier-config",
+  "eslintConfig": {
+    "extends": "@ionic/eslint-config/recommended"
+  },
+  "capacitor": {
+    "ios": {
+      "src": "ios"
+    },
+    "android": {
+      "src": "android"
+    }
+  }
+}
